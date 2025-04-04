@@ -42,17 +42,22 @@ function reiniciar(){
         <p> Exemplo de saudação usando função</p>
         <p> {{ saudacao() }}  </p>
     </div>
-    <div>
+    <div class="contador">
       <h1>Contador</h1>
     <p> {{ contador }} </p>
     <button @click="incrementar">Incrementar</button>
     <button @click="decrementar">Decrementar</button>
     <button @click="reiniciar">Reiniciar</button>
+    <div :style="{backgroundColor : contador > 10 ? 'green' : 'red' }">
+
+    <p  v-if = "contador > 10 "> valor maior que 10 </p>
+    <p v-else >valor menor que 10 </p>
+    </div>
     </div>
 </template>
 
 <style scoped>
-.info {
+.info,.contador {
   background-color: rgba(35,12,22,1);
   padding: 20px 30px;
   color: rgb(183, 210, 219);
@@ -60,9 +65,33 @@ function reiniciar(){
 }
 
 h1 {
-  color: white;
+  color: rgb(228, 219, 219);
   font-weight: bold;
   font-size: 1.5em;
 }
+
+button {
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: blue;
+  }
+
+  div {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(233, 225, 225);
+    font-weight: bold;
+    background-color: rgba(35,12,22,1);
+  }
 </style>
 
